@@ -26,7 +26,10 @@ cp -R "$WORK"/. .
 rm -rf "$WORK"
 git add -A
 git diff --staged --quiet && echo "[deploy] No changes." && git checkout main && exit 0
-git commit -m "Deploy web app v$(node -p "require('./app.json').expo.version" 2>/dev/null || echo 1.1.0) [automated]"
+GIT_AUTHOR_NAME="jimmythegod100" GIT_AUTHOR_EMAIL="jimmythegod100@users.noreply.github.com" \
+GIT_COMMITTER_NAME="jimmythegod100" GIT_COMMITTER_EMAIL="jimmythegod100@users.noreply.github.com" \
+git commit -m "Deploy web app v1.1.0 [automated]"
+GIT_COMMITTER_NAME="jimmythegod100" GIT_COMMITTER_EMAIL="jimmythegod100@users.noreply.github.com" \
 git push -f origin gh-pages
 git checkout main
 echo "[deploy] Live: https://jimmythegod100.github.io${BASE}/"
