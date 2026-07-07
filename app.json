@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Vincere Media Works",
+    "slug": "vincere-media-works",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "vinceremediaworks",
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0a0a"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vinceremediaworks.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSPhotoLibraryUsageDescription": "Allow access to select photos for project inquiries.",
+        "NSCameraUsageDescription": "Allow camera access for project reference uploads."
+      }
+    },
+    "android": {
+      "package": "com.vinceremediaworks.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0a0a0a",
+        "foregroundImage": "./assets/adaptive-icon.png"
+      }
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "REPLACE_AFTER_EAS_INIT"
+      }
+    },
+    "owner": "jimmythegod100"
+  }
+}
