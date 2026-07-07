@@ -1,7 +1,9 @@
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
-import { BUSINESS } from '../data';
+import InquiryForm from '../components/InquiryForm';
+import { ScreenWrap } from '../components/ScreenWrap';
+import { BUSINESS, FAQ } from '../data';
 import { colors, spacing } from '../theme';
 
 function ContactRow({
@@ -31,7 +33,7 @@ function ContactRow({
 
 export default function ContactScreen() {
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScreenWrap>
       <Text style={styles.header}>Start your project</Text>
       <Text style={styles.sub}>
         Tell us about your vision. We respond within 24–48 hours with a custom quote and timeline.
@@ -56,26 +58,20 @@ export default function ContactScreen() {
         onPress={() => WebBrowser.openBrowserAsync(BUSINESS.instagram)}
       />
 
-      <View style={styles.note}>
-        <Text style={styles.noteTitle}>What to include</Text>
-        <Text style={styles.noteItem}>• Project type (video, logo, social, web)</Text>
-        <Text style={styles.noteItem}>• Timeline and budget range</Text>
-        <Text style={styles.noteItem}>• Links to reference material</Text>
-      </View>
+      <InquiryForm />
 
-      <Pressable
-        style={styles.cta}
-        onPress={() => Linking.openURL(`mailto:${BUSINESS.email}?subject=Project%20inquiry&body=Project%20type%3A%0ATimeline%3A%0ABudget%3A%0ADetails%3A%0A`)}
-      >
-        <Text style={styles.ctaText}>Send inquiry</Text>
-      </Pressable>
-    </ScrollView>
+      <Text style={styles.faqTitle}>FAQ</Text>
+      {FAQ.map((item) => (
+        <View key={item.q} style={styles.faqCard}>
+          <Text style={styles.faqQ}>{item.q}</Text>
+          <Text style={styles.faqA}>{item.a}</Text>
+        </View>
+      ))}
+    </ScreenWrap>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.bg },
-  content: { padding: spacing.lg, paddingBottom: spacing.xl * 2 },
   header: { color: colors.text, fontSize: 24, fontWeight: '800', marginBottom: spacing.sm },
   sub: { color: colors.textMuted, marginBottom: spacing.lg, lineHeight: 22 },
   row: {
@@ -100,22 +96,15 @@ const styles = StyleSheet.create({
   rowText: { flex: 1 },
   rowLabel: { color: colors.textMuted, fontSize: 12, marginBottom: 2 },
   rowValue: { color: colors.text, fontWeight: '600', fontSize: 14 },
-  note: {
+  faqTitle: { color: colors.text, fontSize: 18, fontWeight: '800', marginTop: spacing.xl, marginBottom: spacing.sm },
+  faqCard: {
     backgroundColor: colors.bgCard,
-    borderRadius: 14,
-    padding: spacing.lg,
-    marginTop: spacing.md,
-    marginBottom: spacing.lg,
+    borderRadius: 12,
+    padding: spacing.md,
+    marginBottom: spacing.sm,
     borderWidth: 1,
     borderColor: colors.border,
   },
-  noteTitle: { color: colors.text, fontWeight: '700', marginBottom: spacing.sm },
-  noteItem: { color: colors.textMuted, lineHeight: 24 },
-  cta: {
-    backgroundColor: colors.red,
-    borderRadius: 999,
-    paddingVertical: spacing.md,
-    alignItems: 'center',
-  },
-  ctaText: { color: '#fff', fontWeight: '700', fontSize: 16 },
+  faqQ: { color: colors.text, fontWeight: '700', marginBottom: 4 },
+  faqA: { color: colors.textMuted, fontSize: 14, lineHeight: 20 },
 });

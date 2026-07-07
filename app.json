@@ -2,11 +2,12 @@
   "expo": {
     "name": "Vincere Media Works",
     "slug": "vincere-media-works",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "scheme": "vinceremediaworks",
+    "description": "Video production, brand design, social content, and websites. Browse services, pricing, and contact Vincere Media Works.",
     "splash": {
       "image": "./assets/icon.png",
       "resizeMode": "contain",
@@ -15,24 +16,30 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.vinceremediaworks.app",
-      "buildNumber": "1",
+      "buildNumber": "2",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false,
-        "NSPhotoLibraryUsageDescription": "Allow access to select photos for project inquiries.",
-        "NSCameraUsageDescription": "Allow camera access for project reference uploads."
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
       "package": "com.vinceremediaworks.app",
-      "versionCode": 1,
+      "versionCode": 2,
       "adaptiveIcon": {
         "backgroundColor": "#0a0a0a",
         "foregroundImage": "./assets/adaptive-icon.png"
       }
     },
     "web": {
-      "favicon": "./assets/icon.png"
+      "favicon": "./assets/icon.png",
+      "name": "Vincere Media Works",
+      "shortName": "Vincere",
+      "description": "Media production & brand design — video, logos, social, web.",
+      "themeColor": "#0a0a0a",
+      "backgroundColor": "#0a0a0a",
+      "display": "standalone",
+      "orientation": "portrait"
     },
+    "plugins": ["expo-font", "expo-splash-screen"],
     "extra": {
       "eas": {
         "projectId": "REPLACE_AFTER_EAS_INIT"

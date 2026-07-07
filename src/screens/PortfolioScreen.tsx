@@ -1,10 +1,11 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { ScreenWrap } from '../components/ScreenWrap';
 import { PORTFOLIO } from '../data';
 import { colors, spacing } from '../theme';
 
 export default function PortfolioScreen() {
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScreenWrap>
       <Text style={styles.header}>Portfolio styles</Text>
       <Text style={styles.sub}>
         Example visual directions we create. Your project gets a custom look matched to your brand.
@@ -21,14 +22,17 @@ export default function PortfolioScreen() {
           </View>
         </View>
       ))}
-    </ScrollView>
+      <View style={styles.disclaimer}>
+        <Text style={styles.disclaimerText}>
+          Style concepts only — not fake client case studies. Every project is custom-built for you.
+        </Text>
+      </View>
+    </ScreenWrap>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.bg },
-  content: { padding: spacing.lg, paddingBottom: spacing.xl * 2 },
-  header: { color: colors.text, fontSize: 24, fontWeight: '800', marginBottom: spacing.sm },
+  header: { color: colors.text, fontSize: 22, fontWeight: '800', marginBottom: spacing.sm },
   sub: { color: colors.textMuted, marginBottom: spacing.lg, lineHeight: 22 },
   card: {
     backgroundColor: colors.bgCard,
@@ -39,12 +43,12 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   thumb: {
-    height: 140,
+    height: 120,
     backgroundColor: colors.bgElevated,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  thumbImg: { width: 80, height: 80 },
+  thumbImg: { width: 72, height: 72 },
   body: { padding: spacing.lg },
   label: {
     color: colors.red,
@@ -56,4 +60,12 @@ const styles = StyleSheet.create({
   },
   title: { color: colors.text, fontSize: 18, fontWeight: '700', marginBottom: spacing.xs },
   desc: { color: colors.textMuted, lineHeight: 21 },
+  disclaimer: {
+    backgroundColor: 'rgba(220,38,38,0.08)',
+    borderRadius: 12,
+    padding: spacing.md,
+    borderWidth: 1,
+    borderColor: 'rgba(220,38,38,0.25)',
+  },
+  disclaimerText: { color: colors.textMuted, fontSize: 13, lineHeight: 20, textAlign: 'center' },
 });

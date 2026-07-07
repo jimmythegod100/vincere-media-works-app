@@ -1,0 +1,45 @@
+name: Deploy Web App
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'App.tsx'
+      - 'src/**'
+      - 'assets/**'
+      - 'app.json'
+      - 'package.json'
+      - 'scripts/deploy-web.sh'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx expo export --platform web
+
+      - name: Patch GitHub Pages paths
+        run: |
+          BASE="/vincere-media-works-app"
+          find dist -type f \( -name "*.html" -o -name "*.js" \) -exec sed -i \
+            "s|\"/_expo|\"${BASE}/_expo|g; s|\"/assets|\"${BASE}/assets|g; s|\"/favicon|\"${BASE}/favicon|g" {} \;
+          touch dist/.nojekyll
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
+          force_orphan: true

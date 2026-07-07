@@ -72,6 +72,19 @@ export const PORTFOLIO = [
   },
 ];
 
+export const PROCESS = [
+  { step: '01', title: 'Tell us your vision', detail: 'Share project type, timeline, budget, and any reference links.' },
+  { step: '02', title: 'Get a custom quote', detail: 'We reply within 24–48 hours with scope, price, and delivery date.' },
+  { step: '03', title: 'We create & revise', detail: 'You get progress updates and included revision rounds.' },
+  { step: '04', title: 'Publish-ready delivery', detail: 'Final files in MP4, PNG, SVG, PDF — ready to post or print.' },
+];
+
+export const FAQ = [
+  { q: 'How fast is delivery?', a: 'Starter projects: 3–5 days. Standard: 1–2 weeks. Pro: 2–4 weeks.' },
+  { q: 'Do you offer revisions?', a: 'Yes — every package includes at least one revision round.' },
+  { q: 'Do you work remotely?', a: 'Absolutely. We serve clients nationwide via email and cloud file sharing.' },
+];
+
 export const PRICING = [
   {
     id: 'starter',
