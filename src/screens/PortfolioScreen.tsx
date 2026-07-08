@@ -1,6 +1,6 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { ScreenWrap } from '../components/ScreenWrap';
-import { PORTFOLIO } from '../data';
+import { BUSINESS, PORTFOLIO, PORTFOLIO_IMAGES } from '../data';
 import { colors, spacing } from '../theme';
 
 export default function PortfolioScreen() {
@@ -13,7 +13,7 @@ export default function PortfolioScreen() {
       {PORTFOLIO.map((item) => (
         <View key={item.id} style={styles.card}>
           <View style={styles.thumb}>
-            <Image source={require('../../assets/icon.png')} style={styles.thumbImg} resizeMode="contain" />
+            <Image source={PORTFOLIO_IMAGES[item.imageKey]} style={styles.thumbImg} resizeMode="cover" />
           </View>
           <View style={styles.body}>
             <Text style={styles.label}>{item.label}</Text>
@@ -22,6 +22,9 @@ export default function PortfolioScreen() {
           </View>
         </View>
       ))}
+      <Pressable style={styles.fiverrBtn} onPress={() => Linking.openURL(BUSINESS.fiverrPortfolio)}>
+        <Text style={styles.fiverrBtnText}>View full portfolio on Fiverr</Text>
+      </Pressable>
       <View style={styles.disclaimer}>
         <Text style={styles.disclaimerText}>
           Style concepts only — not fake client case studies. Every project is custom-built for you.
@@ -43,12 +46,10 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   thumb: {
-    height: 120,
+    height: 180,
     backgroundColor: colors.bgElevated,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  thumbImg: { width: 72, height: 72 },
+  thumbImg: { width: '100%', height: '100%' },
   body: { padding: spacing.lg },
   label: {
     color: colors.red,
@@ -60,6 +61,15 @@ const styles = StyleSheet.create({
   },
   title: { color: colors.text, fontSize: 18, fontWeight: '700', marginBottom: spacing.xs },
   desc: { color: colors.textMuted, lineHeight: 21 },
+  fiverrBtn: {
+    backgroundColor: colors.red,
+    borderRadius: 999,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
+  fiverrBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   disclaimer: {
     backgroundColor: 'rgba(220,38,38,0.08)',
     borderRadius: 12,

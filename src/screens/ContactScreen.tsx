@@ -57,6 +57,12 @@ export default function ContactScreen() {
         value="@vinceremediaworks"
         onPress={() => WebBrowser.openBrowserAsync(BUSINESS.instagram)}
       />
+      <ContactRow
+        icon="briefcase"
+        label="Fiverr"
+        value="vinceremedia_"
+        onPress={() => WebBrowser.openBrowserAsync(BUSINESS.fiverr)}
+      />
 
       <InquiryForm />
 

@@ -4,6 +4,8 @@ export const BUSINESS = {
   email: 'andrewjamesmartinez91@gmail.com',
   website: 'https://jimmythegod100.github.io/vincere-media-works-web/',
   instagram: 'https://instagram.com/vinceremediaworks',
+  fiverr: 'https://www.fiverr.com/vinceremedia_',
+  fiverrPortfolio: 'https://www.fiverr.com/users/vinceremedia_/portfolio',
 };
 
 export const SERVICES = [
@@ -51,24 +53,49 @@ export const SERVICES = [
   },
 ];
 
+export const PORTFOLIO_IMAGES = {
+  video: require('../assets/portfolio/vmw-3-video.png'),
+  brand: require('../assets/portfolio/vmw-2-brand.png'),
+  social: require('../assets/portfolio/vmw-4-social.png'),
+  web: require('../assets/portfolio/vmw-5-web.png'),
+  motion: require('../assets/portfolio/vmw-1-cover.png'),
+} as const;
+
 export const PORTFOLIO = [
   {
     id: '1',
     label: 'Video',
     title: 'Cinematic Lyric Video',
     description: 'Synced lyrics, color-graded footage, and motion titles for streaming platforms.',
+    imageKey: 'video' as const,
   },
   {
     id: '2',
     label: 'Brand',
     title: 'Red & Black Identity',
     description: 'Bold logo systems with high contrast for media and entertainment brands.',
+    imageKey: 'brand' as const,
   },
   {
     id: '3',
     label: 'Social',
     title: 'Short-Form Content Pack',
     description: 'Batch-edited reels with hooks, captions, and platform-native aspect ratios.',
+    imageKey: 'social' as const,
+  },
+  {
+    id: '4',
+    label: 'Web',
+    title: 'Agency Landing Page',
+    description: 'Conversion-focused sites with bold typography and crimson accents.',
+    imageKey: 'web' as const,
+  },
+  {
+    id: '5',
+    label: 'Motion',
+    title: 'Brand Title & Motion',
+    description: 'Cinematic title cards, intro sequences, and animated logos.',
+    imageKey: 'motion' as const,
   },
 ];
 
@@ -83,6 +110,7 @@ export const FAQ = [
   { q: 'How fast is delivery?', a: 'Starter projects: 3–5 days. Standard: 1–2 weeks. Pro: 2–4 weeks.' },
   { q: 'Do you offer revisions?', a: 'Yes — every package includes at least one revision round.' },
   { q: 'Do you work remotely?', a: 'Absolutely. We serve clients nationwide via email and cloud file sharing.' },
+  { q: 'Can I hire you on Fiverr?', a: 'Yes — book packages and view our full portfolio at fiverr.com/vinceremedia_.' },
 ];
 
 export const PRICING = [
