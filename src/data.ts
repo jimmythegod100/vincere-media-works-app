@@ -1,7 +1,9 @@
 export const BUSINESS = {
   name: 'Vincere Media Works',
   tagline: 'Media that wins.',
-  email: 'andrewjamesmartinez91@gmail.com',
+  email: 'vinceremediaworks@gmail.com',
+  phoneDisplay: '(209) 315-5702',
+  phoneTel: '+12093155702',
   website: 'https://jimmythegod100.github.io/vincere-media-works-web/',
   instagram: 'https://instagram.com/vinceremediaworks',
   fiverr: 'https://www.fiverr.com/vinceremedia_',

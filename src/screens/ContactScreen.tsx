@@ -46,6 +46,12 @@ export default function ContactScreen() {
         onPress={() => Linking.openURL(`mailto:${BUSINESS.email}?subject=Project%20inquiry%20—%20Vincere%20Media%20Works`)}
       />
       <ContactRow
+        icon="call"
+        label="Phone"
+        value={BUSINESS.phoneDisplay}
+        onPress={() => Linking.openURL(`tel:${BUSINESS.phoneTel}`)}
+      />
+      <ContactRow
         icon="globe"
         label="Website"
         value="vincere-media-works-web"

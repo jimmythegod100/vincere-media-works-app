@@ -23,6 +23,10 @@ export default function HomeScreen() {
           <Text style={styles.ctaText}>Get a Free Quote</Text>
           <Ionicons name="arrow-forward" size={18} color="#fff" />
         </Pressable>
+        <Pressable style={styles.phoneCta} onPress={() => Linking.openURL(`tel:${BUSINESS.phoneTel}`)}>
+          <Ionicons name="call-outline" size={18} color={colors.textMuted} />
+          <Text style={styles.phoneCtaText}>{BUSINESS.phoneDisplay}</Text>
+        </Pressable>
         <Pressable style={styles.fiverrCta} onPress={() => Linking.openURL(BUSINESS.fiverr)}>
           <Ionicons name="briefcase-outline" size={18} color={colors.red} />
           <Text style={styles.fiverrCtaText}>Hire on Fiverr</Text>
@@ -100,6 +104,15 @@ const styles = StyleSheet.create({
     borderRadius: 999,
   },
   ctaText: { color: '#fff', fontWeight: '700', fontSize: 16 },
+  phoneCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+  },
+  phoneCtaText: { color: colors.textMuted, fontWeight: '600', fontSize: 15 },
   fiverrCta: {
     flexDirection: 'row',
     alignItems: 'center',
